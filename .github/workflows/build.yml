@@ -13,6 +13,7 @@ jobs:
         with:
           gradle-version: 9.2.1
       - run: unzip -o BlackHole_FabricMod_src.zip -d proj
+      - run: sed -i 's/net.minecraft.world.level.LevelResource/net.minecraft.world.level.storage.LevelResource/' proj/src/main/java/com/blackhole/BlackHoleManager.java
       - run: cd proj && gradle build
       - uses: actions/upload-artifact@v4
         with:
